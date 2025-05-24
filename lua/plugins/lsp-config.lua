@@ -58,6 +58,55 @@ return {
                 })
             end
         end
-    }
+    },
+ -- --- NEW PLUGIN: CONFORM.NVIM FOR FORMATTING ---
+    {
+        "stevearc/conform.nvim",
+        event = { "BufWritePre" }, -- Load on buffer write, optimizing startup
+        cmd = { "ConformInfo" },   -- Allow manual triggering of ConformInfo
+        keys = {                   -- Optional: Keybinding for manual formatting
+            {
+                "<leader>fm",
+                function()
+                    require("conform").format({ async = true, lsp_fallback = true })
+                end,
+                mode = "", -- Applies to normal, visual, and select modes
+                desc = "Format file",
+            },
+        },
+        opts = {
+            -- Define your formatters and their order of preference for each filetype
+            formatters_by_ft = {
+                lua = { "stylua" },
+                -- For C/C++/CMake, use clang-format
+                c = { "clang-format" },
+                cpp = { "clang-format" },
+                cmake = { "cmake_format" }, -- Or just "clang-format" if it handles cmake
+                css = { { "prettierd", "prettier" } }, -- Try prettierd first, then prettier
+                html = { { "prettierd", "prettier" } },
+                -- Add other filetypes you use and their formatters
+                -- javascript = { { "prettierd", "prettier" } },
+                -- typescript = { { "prettierd", "prettier" } },
+                -- json = { { "prettierd", "prettier" } },
+                -- markdown = { { "prettierd", "prettier" } },
+                -- python = { "black", "isort" },
+            },
+            -- Enable auto-formatting on save
+            format_on_save = {
+                timeout_ms = 500,
+                lsp_fallback = true, -- Fallback to LSP formatting if no conform formatter is found
+            },
+            -- You can also add more advanced options like logging, custom formatters etc.
+            -- log_level = vim.log.levels.DEBUG,
+            -- formatters = {
+            --   some_custom_formatter = {
+            --     command = "my-cli-tool",
+            --     args = { "--some-arg", "$FILE" },
+            --   },
+            -- },
+        },
+    },
 }
+
+
 
