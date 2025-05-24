@@ -3,6 +3,8 @@ return {
     { "nvim-tree/nvim-web-devicons" },
     { "navarasu/onedark.nvim" },
     { "catppuccin/nvim", name = "catppuccin" },
+{ "rose-pine/neovim", name = "rose-pine" },
+    {"hrsh7th/nvim-cmp"},
     { "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
 }
 
