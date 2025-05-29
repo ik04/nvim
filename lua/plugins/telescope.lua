@@ -46,7 +46,7 @@ return {
 			vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live Grep" })
 
 			-- Keymap for Buffer Switching
-			vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers" })
+			vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Find Buffers" })
 			-- Or if you prefer a different keymap, e.g., just "<leader>b":
 			-- vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "Find Buffers" })
 
