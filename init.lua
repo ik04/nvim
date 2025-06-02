@@ -24,6 +24,11 @@ vim.api.nvim_set_keymap("v", "<C-c>", '"+y', { noremap = true, silent = true, de
 -- Pastes content from the system clipboard after the cursor.
 vim.api.nvim_set_keymap("n", "<C-v>", '"+p', { noremap = true, silent = true, desc = "Paste from system clipboard" })
 
+local opts = { noremap = true, silent = true, desc = "Save file" }
+vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", opts)
+vim.api.nvim_set_keymap("i", "<C-s>", "<Esc>:w<CR>a", opts)
+vim.api.nvim_set_keymap("v", "<C-s>", "<Esc>:w<CR>gv", opts)
+vim.api.nvim_set_keymap("x", "<C-s>", "<Esc>:w<CR>gv", opts)
 -- 3. Ctrl+V for Paste from System Clipboard (in Insert Mode)
 -- This makes Ctrl+V behave more like a standard text editor:
 -- <ESC>    : Exit insert mode temporarily

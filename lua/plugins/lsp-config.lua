@@ -46,7 +46,7 @@ return {
 					"jsonls",
 					"markdown_oxide", -- Modern Markdown LSP
 					"pyright", -- Python LSP
-					"tsserver", -- TypeScript/JavaScript LSP
+					"ts_ls", -- TypeScript/JavaScript LSP
 					"rust_analyzer", -- Rust LSP (if you do Rust development)
 					"bashls", -- Bash script LSP
 					"lemminx", -- XML LSP
@@ -199,7 +199,7 @@ return {
 			})
 
 			-- Example: TypeScript/JavaScript (tsserver)
-			lspconfig.tsserver.setup({
+			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 				-- root_dir = lspconfig.util.root_pattern("package.json"), -- Example for custom root detection
